@@ -31,4 +31,20 @@ print(f"The area of the rectangle is: {area:}")
 
 #4
 
+num1 = int(input("Enter the first integer: "))
+num2 = int(input("Enter the second integer: "))
+num3 = int(input("Enter the third integer: "))
+
+sum= num1 + num2 + num3
+product = num1 * num2 * num3
+average = sum / 3
+
+print(f"Sum: {sum}")
+print(f"Product: {product}")
+print(f"Average: {average}")
+
+#5
+
+
+
 
