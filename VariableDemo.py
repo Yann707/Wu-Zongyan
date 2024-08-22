@@ -1,1 +1,1 @@
-prit("hhhh")
+print("Yanjhhhh")
