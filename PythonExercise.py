@@ -71,12 +71,21 @@ import random
 code1 = [random.randint(0, 9),
          random.randint(0, 9),
          random.randint(0, 9)]
-code2 = [random.randint(1, 6),
+code2 = [random.randint(0, 9),
+         random.randint(0, 9),
+         random.randint(0, 9)]
+code3 = [random.randint(1, 6),
+         random.randint(1, 6),
+         random.randint(1, 6),
+         random.randint(1, 6)]
+code4 = [random.randint(1, 6),
          random.randint(1, 6),
          random.randint(1, 6),
          random.randint(1, 6)]
 print("3-digit code:", code1)
-print("4-digit code:", code2)
+print("3-digit code:", code2)
+print("4-digit code:", code3)
+print("4-digit code:", code4)
 
 
 
