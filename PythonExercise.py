@@ -45,6 +45,40 @@ print(f"Average: {average}")
 
 #5
 
+def convert(talents, pounds, lots):
+    talent = 20
+    pound = 32
+    lot = 13.3
+
+    grams = (talents * talent * pound * lot + pounds * pound * lot + lots * lot)
+
+    kilograms = grams // 1000
+    grams = grams % 1000
+
+    return kilograms, grams
+
+talents = float(input("Enter talents: "))
+pounds = float(input("Enter pounds: "))
+lots = float(input("Enter lots: "))
+
+kilograms, grams = convert(talents, pounds, lots)
+print(f"The weight in modern units is: {kilograms:.0f} kilograms and {grams:.2f} grams.")
+
+#6
+
+import random
+
+code1 = [random.randint(0, 9),
+         random.randint(0, 9),
+         random.randint(0, 9)]
+code2 = [random.randint(1, 6),
+         random.randint(1, 6),
+         random.randint(1, 6),
+         random.randint(1, 6)]
+print("3-digit code:", code1)
+print("4-digit code:", code2)
+
+
 
 
 
