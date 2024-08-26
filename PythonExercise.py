@@ -86,7 +86,9 @@ print("3-digit code:", code1)
 print("3-digit code:", code2)
 print("4-digit code:", code3)
 print("4-digit code:", code4)'''
+
 #Exercise2
+
 size_limit = 42
 zander_length = float(input("Enter the length of the zander in centimeters: "))
 
