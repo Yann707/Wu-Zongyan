@@ -1,5 +1,5 @@
 #Exercise1
-print("Hello, Wu Zongyan!")
+'''print("Hello, Wu Zongyan!")
 
 #Exercise2
 #1
@@ -85,7 +85,19 @@ code4 = [random.randint(1, 6),
 print("3-digit code:", code1)
 print("3-digit code:", code2)
 print("4-digit code:", code3)
-print("4-digit code:", code4)
+print("4-digit code:", code4)'''
+#Exercise2
+size_limit = 42
+zander_length = float(input("Enter the length of the zander in centimeters: "))
+
+if zander_length >= size_limit:
+    print("No problem! You can keep the zander.")
+else:
+    centimeters_short = size_limit - zander_length
+    print(f"The zander is {centimeters_short:.2f} centimeters below the size limit.")
+    print("Please release the fish back into the lake.")
+
+
 
 
 
