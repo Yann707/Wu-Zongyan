@@ -88,7 +88,7 @@ print("4-digit code:", code3)
 print("4-digit code:", code4)'''
 
 #Exercise2
-
+#1
 size = 42
 length = float(input("Enter the length of the zander in centimeters: "))
 
@@ -98,6 +98,22 @@ else:
     centimeters = size - length
     print(f"The zander is {centimeters:.2f} centimeters below the size limit.")
     print("Please release the fish back into the lake.")
+
+#2
+cabin_class = input("Enter the cabin class (LUX, A, B, or C): ")
+
+if cabin_class == "LUX":
+    print("You have selected a LUX cabin: upper-deck cabin with a balcony.")
+elif cabin_class == "A":
+    print("You have selected a cabin in class A: above the car deck, equipped with a window.")
+elif cabin_class == "B":
+    print("You have selected a cabin in class B: windowless cabin above the car deck.")
+elif cabin_class == "C":
+    print("You have selected a cabin in class C: windowless cabin below the car deck.")
+else:
+    print("Invalid cabin class.")
+
+
 
 
 
