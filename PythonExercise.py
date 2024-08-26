@@ -89,6 +89,7 @@ print("4-digit code:", code4)'''
 
 #Exercise2
 #1
+
 size = 42
 length = float(input("Enter the length of the zander in centimeters: "))
 
@@ -100,6 +101,7 @@ else:
     print("Please release the fish back into the lake.")
 
 #2
+
 cabin_class = input("Enter the cabin class (LUX, A, B, or C): ")
 
 if cabin_class == "LUX":
