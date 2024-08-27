@@ -94,7 +94,7 @@ size = 42
 length = float(input("Enter the length of the zander in centimeters: "))
 
 if length >= size:
-    print("No problem! You can keep the zander.")
+    print("No problem!")
 else:
     centimeters = size - length
     print(f"The zander is {centimeters:.2f} centimeters below the size limit.")
