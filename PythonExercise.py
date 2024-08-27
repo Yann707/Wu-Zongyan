@@ -116,9 +116,32 @@ else:
     print("Invalid cabin class.")
 
 #3
+gender = input("Enter biological gender (male or female): ")
 
+if gender == "female":
+   hemoglobin_value=float(input("Enter hemoglobin value(g/l): "))
+   min = 117
+   max = 155
 
+elif gender == "male":
+   hemoglobin_value=float(input("Enter hemoglobin value(g/l): "))
+   min = 134
+   max = 167
 
+if hemoglobin_value >= min and hemoglobin_value <= max:
+    print("Please stay in good health! Your hemoglobin level is normal.")
+elif hemoglobin_value > max :
+    print("Please pay attention to your health! Your Hemoglobin level is high.")
+elif hemoglobin_value < min :
+    print ("Please pay attention to your health! Your Hemoglobin level is low.")
+
+#4
+year = int(input("Enter year: "))
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
 
 
 
