@@ -89,13 +89,12 @@ print("4-digit code:", code4)'''
 
 #Exercise2
 #1
-size = 42
 length = float(input("Enter the length of the zander in centimeters: "))
 
-if length >= size:
+if length >= 42:
     print("No problem!")
 else:
-    centimeters = size - length
+    centimeters = 42 - length
     print(f"The zander is {centimeters:.2f} centimeters below the size limit.")
     print("Please release the fish back into the lake.")
 
