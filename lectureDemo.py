@@ -15,4 +15,21 @@ while user_input != "exit":
     user_input = input("Type something (or exit to quit): ")
     print("You typed:", user_input)
 '''
+number = []
+
+while True:
+    user_input= input("Enter a number (or press Enter to quit): ")
+
+    if user_input == "":
+        break
+
+    number.append(user_input)
+
+if number:
+    min = min(number)
+    max = max(number)
+    print(f"The smallest number is: {min}")
+    print(f"The largest number is: {max}")
+else:
+    print("No numbers were entered.")
 
