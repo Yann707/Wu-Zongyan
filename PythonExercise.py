@@ -95,8 +95,7 @@ if length >= 42:
     print("No problem!")
 else:
     centimeters = 42 - length
-    print(f"The zander is {centimeters:.2f} centimeters below the size limit.")
-    print("Please release the fish back into the lake.")
+    print(f"The zander is {centimeters:.2f} centimeters below the size limit.Please release the fish back into the lake.")
 
 #2
 cabin_class = input("Enter the cabin class (LUX, A, B, or C): ")
