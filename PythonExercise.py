@@ -1,5 +1,5 @@
-#Exercise1
-'''print("Hello, Wu Zongyan!")
+'''#Exercise1
+print("Hello, Wu Zongyan!")
 
 #Exercise2
 #1
@@ -85,8 +85,8 @@ code4 = [random.randint(1, 6),
 print("3-digit code:", code1)
 print("3-digit code:", code2)
 print("4-digit code:", code3)
-print("4-digit code:", code4)'''
-
+print("4-digit code:", code4)
+'''
 #Exercise2
 #1
 length = float(input("Enter the length of the zander in centimeters: "))
@@ -138,6 +138,95 @@ if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
     print(f"{year} is a leap year.")
 else:
     print(f"{year} is not a leap year.")
+
+#Exerise 3
+#1
+number = 1
+
+while number <= 1000:
+    if number % 3 == 0:
+        print(number)
+
+    number = number+1
+
+#2
+while True:
+    inches=float(input("Enter inches: "))
+
+    if inches < 0:
+        print("Inches cannot be less than zero. The program ends.")
+        break
+    centimeters = inches * 2.54
+    print(f"{inches} inches is equal to {centimeters} centimeters.")
+
+#3
+numbers = []
+
+while True:
+    user_input= input("Enter a number or press Enter to quit: ")
+
+    if user_input == "":
+        break
+    if numbers:
+        min= min(numbers)
+        max = max(numbers)
+        print(f"The smallest number is: {min}")
+        print(f"The largest number is: {max}")
+    else:
+        print("No numbers were entered.")
+        break
+
+    else:
+        print("Invalid input. Please enter a valid number.")
+#4
+import random
+random_number = random.randint(1, 10)
+number = 0
+while True:
+    user = int(input("Enter a number between 1 and 10: "))
+    number = number + 1
+    if user == random_number:
+       print(f"Correct!")
+    elif user > random_number:
+        print(f"Too high!")
+    elif user < random_number:
+        print(f"Too low!")
+
+#5
+username = "python"
+password = "rules"
+max_attempts = 5
+attempts = 0
+
+while True:
+    user_input = input("Enter a username: ")
+
+    if user_input == username:
+        user_input = input("Enter a password: ")
+
+        if user_input == password:
+            print("Welcome!")
+            break
+        else:
+            print("Invalid password. Please try again.")
+    else:
+        print("Invalid username. Please try again.")
+
+    attempts += 1
+
+    if attempts >= max_attempts:
+        print("Access denied.")
+        break
+
+
+
+
+
+
+
+
+
+
 
 
 
