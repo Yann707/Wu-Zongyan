@@ -160,24 +160,23 @@ while True:
     print(f"{inches} inches is equal to {centimeters} centimeters.")
 
 #3
-numbers = []
+number = []
 
 while True:
     user_input= input("Enter a number or press Enter to quit: ")
 
     if user_input == "":
         break
-    if numbers:
-        min= min(numbers)
-        max = max(numbers)
-        print(f"The smallest number is: {min}")
-        print(f"The largest number is: {max}")
-    else:
-        print("No numbers were entered.")
-        break
 
-    else:
-        print("Invalid input. Please enter a valid number.")
+    number.append(user_input)
+
+if number:
+    min = min(number)
+    max = max(number)
+    print(f"The smallest number is: {min}")
+    print(f"The largest number is: {max}")
+else:
+    print("No numbers were entered.")
 #4
 import random
 random_number = random.randint(1, 10)
