@@ -87,7 +87,7 @@ print("3-digit code:", code2)
 print("4-digit code:", code3)
 print("4-digit code:", code4)
 
-#Exercise2
+#Exercise3
 #1
 length = float(input("Enter the length of the zander in centimeters: "))
 
@@ -139,7 +139,7 @@ if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
 else:
     print(f"{year} is not a leap year.")
 
-#Exerise 3
+#Exerise 4
 #1
 number = 1
 
@@ -236,19 +236,22 @@ if __name__ == "__main__":
     pi_approx = pi(points)
     print("Approximation of pi:", pi_approx)
 '''
-#Exerise 4
-
+#Exerise 5
+#1
 import random
 
 user=int(input("how many dice to roll:"))
 
-Total_sum = 0
+sum = 0
 for i in range(user):
     roll = random.randint(1,6)
-    Total_sum += roll
+    sum += roll
     print(f" {roll}")
 
-print(f"The sum of the numbers is {Total_sum}")
+print(f"The sum of the numbers is {sum}")
+
+#2
+
 
 
 
