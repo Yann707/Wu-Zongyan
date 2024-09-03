@@ -251,7 +251,15 @@ for i in range(user):
 print(f"The sum of the numbers is {sum}")
 
 #2
+number = []
 
+while True:
+    user_input= input("Enter a number or press Enter to quit: ")
+
+    if user_input == "":
+        break
+
+    number.append(user_input)
 
 
 
