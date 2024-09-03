@@ -177,6 +177,7 @@ if number:
     print(f"The largest number is: {max}")
 else:
     print("No numbers were entered.")
+
 #4
 import random
 random_number = random.randint(1, 10)
@@ -216,8 +217,7 @@ while True:
     if attempts >= max_attempts:
         print("Access denied.")
         break
-'''
-
+#6
 import random
 
 def pi(points):
@@ -235,10 +235,20 @@ if __name__ == "__main__":
     points = int(input("Enter the number of random points: "))
     pi_approx = pi(points)
     print("Approximation of pi:", pi_approx)
+'''
+#Exerise 4
 
+import random
 
+user=int(input("how many dice to roll:"))
 
+Total_sum = 0
+for i in range(user):
+    roll = random.randint(1,6)
+    Total_sum += roll
+    print(f" {roll}")
 
+print(f"The sum of the numbers is {Total_sum}")
 
 
 
