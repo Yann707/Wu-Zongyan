@@ -219,7 +219,6 @@ while True:
 '''
 
 import random
-import random
 
 def pi(points):
 
