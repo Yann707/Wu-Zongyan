@@ -86,7 +86,7 @@ print("3-digit code:", code1)
 print("3-digit code:", code2)
 print("4-digit code:", code3)
 print("4-digit code:", code4)
-'''
+
 #Exercise2
 #1
 length = float(input("Enter the length of the zander in centimeters: "))
@@ -216,8 +216,26 @@ while True:
     if attempts >= max_attempts:
         print("Access denied.")
         break
+'''
 
+import random
+import random
 
+def pi(points):
+
+    inside = 0
+    for _ in range(points):
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
+        if x**2 + y**2 <= 1:
+            inside += 1
+
+    return 4 * inside / points
+
+if __name__ == "__main__":
+    points = int(input("Enter the number of random points: "))
+    pi_approx = pi(points)
+    print("Approximation of pi:", pi_approx)
 
 
 
