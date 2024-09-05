@@ -233,9 +233,9 @@ def pi(points):
 
 if __name__ == "__main__":
     points = int(input("Enter the number of random points: "))
-    pi_approx = pi(points)
-    print("Approximation of pi:", pi_approx)
-'''
+    p = pi(points)
+    print("Approximation of pi:", p)
+
 #Exerise 5
 #1
 import random
@@ -249,7 +249,7 @@ for i in range(user):
     print(f" {roll}")
 
 print(f"The sum of the numbers is {sum}")
-
+'''
 #2
 number = []
 
@@ -260,6 +260,31 @@ while True:
         break
 
     number.append(user_input)
+
+number.sort(reverse=True)
+
+print("The five greatest numbers are:")
+for i in range(min(5, len(number))):
+    print(number[i])
+
+#3
+
+
+
+
+
+
+#4
+
+cities = []
+
+for i in range(5):
+    city = input(f"Enter the name of city {i + 1}: ")
+    cities += [city]
+
+print("The names of the cities are:")
+for city in cities:
+    print(city)
 
 
 
