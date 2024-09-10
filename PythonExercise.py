@@ -236,6 +236,7 @@ if __name__ == "__main__":
     p = pi(points)
     print("Approximation of pi:", p)
 
+
 #Exerise 5
 #1
 import random
@@ -249,7 +250,7 @@ for i in range(user):
     print(f" {roll}")
 
 print(f"The sum of the numbers is {sum}")
-'''
+
 #2
 number = []
 
@@ -266,13 +267,24 @@ number.sort(reverse=True)
 print("The five greatest numbers are:")
 for i in range(min(5, len(number))):
     print(number[i])
-
+'''
 #3
+def prime(number):
+    if number <= 1:
+        return False
 
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
 
+    return True
 
+user_input = int(input("Enter an integer: "))
 
-
+if prime(user_input):
+    print(f"{user_input} is a prime number.")
+else:
+    print(f"{user_input} is not a prime number.")
 
 #4
 
@@ -286,12 +298,100 @@ print("The names of the cities are:")
 for city in cities:
     print(city)
 
+#Exercise 6
+#1
+import random
+
+def dice():
+    return random.randint(1, 6)
+
+def main():
+    count = 0
+    while True:
+        count += 1
+        result = dice()
+        print(f"The result of the {count} roll of the dice is {result}")
+
+        if result == 6:
+            break
+
+dice()
+main()
+
+#2
 
 
 
 
 
+#3
+
+def main():
+    while True:
+        num = input("Enter the gallons: ")
+        gallons = float(num)
+
+        if gallons < 0:
+            break
+
+        liters = gallons * 0.2642
+        print(f"{gallons} American gallons is approximately {liters} liters.")
 
 
+main()
 
+#4
+def list(numbers):
+    return sum(numbers)
 
+def main():
+    numbers = [1, 2, 3, 4, 5]
+
+    result = list(numbers)
+
+    print(f"The sum of the list is: {result}")
+
+main()
+
+#5
+def remove_num(input):
+    even_num = [x for x in input if x % 2 == 0]
+    return even_num
+
+def main():
+    original_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,]
+    cut_down_list = remove_num(original_list)
+    print("original_list:", original_list)
+    print("cut_down_list:", cut_down_list)
+
+if __name__ == '__main__':
+    main()
+
+#6
+
+def unit_price(diameter, price):
+    radius = diameter / 2
+    Square_centimeter = 3.14159 * (radius ** 2)
+    Square_meter= Square_centimeter * 10000
+    unit_price = price / Square_meter
+    return unit_price
+
+def main():
+    diameter1 = float(input("Enter the diameter of the first pizza in centimeters: "))
+    price1 = float(input("Enter the price of the first pizza in euros: "))
+
+    diameter2 = float(input("Enter the diameter of the second pizza in centimeters: "))
+    price2 = float(input("Enter the price of the second pizza in euros: "))
+
+    pizza_price1 = unit_price(diameter1, price1)
+    pizza_price2 = unit_price(diameter2, price2)
+
+    if pizza_price1 < pizza_price2:
+        print("The first pizza provides better value for money.")
+    elif pizza_price1 > pizza_price2:
+        print("The second pizza provides better value for money.")
+    else:
+        print("Both pizzas have the same unit price.")
+
+if __name__ == "__main__":
+    main()
