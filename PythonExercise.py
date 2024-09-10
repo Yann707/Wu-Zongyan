@@ -267,7 +267,7 @@ number.sort(reverse=True)
 print("The five greatest numbers are:")
 for i in range(min(5, len(number))):
     print(number[i])
-'''
+
 #3
 def prime(number):
     if number <= 1:
@@ -300,8 +300,6 @@ for city in cities:
 
 #Exercise 6
 #1
-import random
-
 def dice():
     return random.randint(1, 6)
 
@@ -411,3 +409,25 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''
+#Exercise7
+#1
+def season(month):
+    seasons = ("Winter", "Spring", "Summer", "Autumn")
+    if 1 <= month <= 2 or month == 12:
+        return seasons[0]
+    elif 3 <= month <= 5:
+        return seasons[1]
+    elif 6 <= month <= 8:
+        return seasons[2]
+    elif 9 <= month <= 11:
+        return seasons[3]
+
+def main():
+    month = int(input("Enter the month  :"))
+    seasons = season(month)
+    print(f"The season for month {month} is {seasons}.")
+
+if __name__ == "__main__":
+    main()
+
