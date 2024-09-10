@@ -320,9 +320,25 @@ main()
 
 #2
 
+import random
 
+def roll_dice(sides):
+    roll = 0
+    rolls_count = 0
 
+    while roll != sides:
+        roll = random.randint(1, sides)
+        rolls_count += 1
+        print(f"Rolled: {roll}")
 
+    return rolls_count
+
+def main():
+    sides = int(input("Enter the number of sides on the dice: "))
+    rolls = roll_dice(sides)
+    print(f"It took {rolls} rolls to get the maximum number {sides}.")
+
+main()
 
 #3
 
