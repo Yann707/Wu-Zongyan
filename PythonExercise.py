@@ -424,10 +424,34 @@ def season(month):
         return seasons[3]
 
 def main():
-    month = int(input("Enter the month  :"))
+    month = int(input("Enter the month from 1-12  :"))
     seasons = season(month)
     print(f"The season for month {month} is {seasons}.")
 
 if __name__ == "__main__":
     main()
+
+#2
+new_name = set()
+existing_name = []
+
+while True:
+    name = input("Enter a name: ")
+
+    if name == "":
+        break
+
+    if name in new_name:
+        print("Existing name")
+    else:
+        new_name.add(name)
+        print("New name")
+
+    existing_name.append(name)
+
+print("All entered names:")
+for name in existing_name:
+    print(name)
+
+#3
 
