@@ -670,4 +670,33 @@ if __name__ == "__main__":
     new_car.drive(1.5)
 
     print(f"Travelled distance after driving: {new_car.travelled_distance} km")
-#3
+#3 & 4
+import random
+
+class Car:
+    def __init__(self, registration_number, max_speed):
+        self.registration_number = registration_number
+        self.max_speed = max_speed
+        self.speed = 0
+        self.distance_traveled = 0
+
+    def accelerate(self):
+        self.speed += random.randint(-10, 15)
+        self.speed = max(0, min(self.speed, self.max_speed))
+    def drive(self):
+        self.distance_traveled += self.speed
+
+def print_race_status(cars):
+    print(f"{'Registration Number':<20} {'Max Speed (km/h)':<20} {'Distance Traveled (km)':<25}")
+    for car in cars:
+        print(f"{car.registration_number:<20} {car.max_speed:<20} {car.distance_traveled:<25}")
+
+cars = [Car(registration_number=f"ABC-{i+1}", max_speed=random.randint(100, 200)) for i in range(10)]
+
+
+while any(car.distance_traveled < 10000 for car in cars):
+    for car in cars:
+        car.accelerate()
+        car.drive()
+
+print_race_status(cars)
