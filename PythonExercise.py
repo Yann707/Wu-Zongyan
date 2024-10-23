@@ -669,4 +669,4 @@ if __name__ == "__main__":
     new_car.drive(1.5)
 
     print(f"Travelled distance after driving: {new_car.travelled_distance} km")
-
+#3
