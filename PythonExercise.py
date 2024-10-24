@@ -611,7 +611,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''
+
 #Exercise 9
 
 #1
@@ -700,3 +700,44 @@ while any(car.distance_traveled < 10000 for car in cars):
         car.drive()
 
 print_race_status(cars)
+'''
+#Exercise 10
+#1
+
+class Elevator:
+    def __init__(self, bottom_floor, top_floor):
+        self.current_floor = bottom_floor
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+
+    def go_to_floor(self, target_floor):
+        while self.current_floor != target_floor:
+            if self.current_floor < target_floor:
+                self.floor_up()
+            else:
+                self.floor_down()
+
+    def floor_up(self):
+        if self.current_floor < self.top_floor:
+            self.current_floor += 1
+            print(f"Elevator is now on floor {self.current_floor}")
+        else:
+            print("The elevator's already on the top floor.")
+
+    def floor_down(self):
+        if self.current_floor > self.bottom_floor:
+            self.current_floor -= 1
+            print(f"Elevator is now on floor {self.current_floor}")
+        else:
+            print("The elevator's already on the bottom floor.")
+
+def main():
+    my_elevator = Elevator(1, 10)
+    my_elevator.go_to_floor(7)
+    my_elevator.go_to_floor(1)
+
+if __name__ == "__main__":
+    main()
+
+#2
+
