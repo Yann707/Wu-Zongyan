@@ -492,7 +492,7 @@ import mysql.connector
 def get_airport_info(cursor, icao_code):
     query = "SELECT name, municipality FROM airports WHERE ident = %s"
     cursor.execute(query, (icao_code,))
-    result = cursor.fetchone()  # 获取匹配的单条记录
+    result = cursor.fetchone()
     return result
 
 def main():
@@ -611,7 +611,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+'''
 #Exercise 9
 
 #1
@@ -700,7 +700,7 @@ while any(car.distance_traveled < 10000 for car in cars):
         car.drive()
 
 print_race_status(cars)
-'''
+
 #Exercise 10
 #1
 
