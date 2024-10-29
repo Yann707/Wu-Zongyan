@@ -614,92 +614,59 @@ if __name__ == "__main__":
 '''
 #Exercise 9
 
-#1
-class Car:
-    def __init__(self, registration_number, max_speed):
-        self.registration_number = registration_number
-        self.max_speed = max_speed
-        self.current_speed = 0
-        self.travelled_distance = 0
-
-    def accelerate(self, speed_change):
-        new_speed = self.current_speed + speed_change
-        self.current_speed = max(0, min(new_speed, self.max_speed))
-
-if __name__ == "__main__":
-    new_car = Car(registration_number="ABC-123", max_speed=142)
-
-    new_car.accelerate(30)
-    new_car.accelerate(70)
-    new_car.accelerate(50)
-    print(f"Registration number: {new_car.registration_number}")
-    print(f"Maximum speed: {new_car.max_speed} km/h")
-    print(f"Current speed: {new_car.current_speed} km/h")
-
-    new_car.accelerate(-200)
-
-    print(f"The final speed of the car is: {new_car.current_speed} km/h")
-
-#2
-class Car:
-    def __init__(self, registration_number, max_speed):
-        self.registration_number = registration_number
-        self.max_speed = max_speed
-        self.current_speed = 0
-        self.travelled_distance = 0
-
-    def accelerate(self, speed_change):
-        new_speed = self.current_speed + speed_change
-        self.current_speed = max(0, min(new_speed, self.max_speed))
-
-    def drive(self, hours):
-        distance_covered = self.current_speed * hours
-        self.travelled_distance += distance_covered
-
-if __name__ == "__main__":
-    new_car = Car(registration_number="ABC-123", max_speed=142)
-
-    new_car.accelerate(30)
-    new_car.accelerate(70)
-    new_car.accelerate(50)
-    print(f"Registration number: {new_car.registration_number}")
-    print(f"Maximum speed: {new_car.max_speed} km/h")
-    print(f"Current speed: {new_car.current_speed} km/h")
-    print(f"Travelled distance: {new_car.travelled_distance} km")
-
-    new_car.drive(1.5)
-
-    print(f"Travelled distance after driving: {new_car.travelled_distance} km")
-#3 & 4
 import random
 
 class Car:
     def __init__(self, registration_number, max_speed):
         self.registration_number = registration_number
         self.max_speed = max_speed
-        self.speed = 0
-        self.distance_traveled = 0
+        self.current_speed = 0
+        self.travelled_distance = 0
 
-    def accelerate(self):
-        self.speed += random.randint(-10, 15)
-        self.speed = max(0, min(self.speed, self.max_speed))
-    def drive(self):
-        self.distance_traveled += self.speed
+    def accelerate(self, speed_change=None):
+        if speed_change is not None:
+            new_speed = self.current_speed + speed_change
+        else:
+            new_speed = self.current_speed + random.randint(-10, 15)
+
+        self.current_speed = max(0, min(new_speed, self.max_speed))
+
+    def drive(self, hours=1):
+        distance_covered = self.current_speed * hours
+        self.travelled_distance += distance_covered
+
 
 def print_race_status(cars):
-    print(f"{'Registration Number':<20} {'Max Speed (km/h)':<20} {'Distance Traveled (km)':<25}")
+    print(
+        f"{'Registration Number':<20} {'Max Speed (km/h)':<20} {'Current Speed (km/h)':<20} {'Distance Traveled (km)':<25}")
     for car in cars:
-        print(f"{car.registration_number:<20} {car.max_speed:<20} {car.distance_traveled:<25}")
-
-cars = [Car(registration_number=f"ABC-{i+1}", max_speed=random.randint(100, 200)) for i in range(10)]
+        print(f"{car.registration_number:<20} {car.max_speed:<20} {car.current_speed:<20} {car.travelled_distance:<25}")
 
 
-while any(car.distance_traveled < 10000 for car in cars):
-    for car in cars:
-        car.accelerate()
-        car.drive()
+if __name__ == "__main__":
+    cars = [Car(registration_number=f"ABC-{i + 1}", max_speed=random.randint(100, 200)) for i in range(10)]
 
-print_race_status(cars)
+    special_car = Car(registration_number="ABC-123", max_speed=142)
+    special_car.travelled_distance = 2000
+
+    special_car.accelerate(60)
+    print(f"---Special Car Before Driving---")
+    print(f"Registration number: {special_car.registration_number}")
+    print(f"Maximum speed: {special_car.max_speed} km/h")
+    print(f"Current speed: {special_car.current_speed} km/h")
+    print(f"Travelled distance: {special_car.travelled_distance} km")
+
+    special_car.drive(1.5)
+    print(f"Travelled distance after driving 1.5 hours: {special_car.travelled_distance} km")
+
+
+    while any(car.travelled_distance < 10000 for car in cars):
+        for car in cars:
+            car.accelerate()
+            car.drive()
+
+    print_race_status(cars)
+
 
 #Exercise 10
 #1
