@@ -857,10 +857,10 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 '''
-
 #Exercise 11
-
+#1
 class Publication:
     def __init__(self, name):
         self.name = name
@@ -896,4 +896,174 @@ Compartment_No6  = Book(name="Compartment No. 6", author="Rosa Liksom", page_cou
 
 Donald_Duck.print_information()
 Compartment_No6.print_information()
+
+#2
+import random
+
+class Car:
+    def __init__(self, registration_number, max_speed):
+        self.registration_number = registration_number
+        self.max_speed = max_speed
+        self.speed = 0
+        self.distance_traveled = 0
+
+    def accelerate(self):
+        self.speed += random.randint(-10, 15)
+        self.speed = max(0, min(self.speed, self.max_speed))
+
+    def drive(self):
+        self.distance_traveled += self.speed
+
+
+class ElectricCar(Car):
+    def __init__(self, registration_number, max_speed, battery_capacity):
+        super().__init__(registration_number, max_speed)
+        self.battery_capacity = battery_capacity  # in kWh
+
+
+class GasolineCar(Car):
+    def __init__(self, registration_number, max_speed, tank_volume):
+        super().__init__(registration_number, max_speed)
+        self.tank_volume = tank_volume  # in liters
+
+
+def main():
+    electric_car = ElectricCar("ABC-15", 180, 52.5)  # 52.5 kWh battery
+    gasoline_car = GasolineCar("ACD-123", 165, 32.3)  # 32.3 liters tank
+
+    electric_car.speed = 120  # km/h
+    gasoline_car.speed = 100  # km/h
+
+    for _ in range(3):
+        electric_car.drive()
+        gasoline_car.drive()
+
+    # Print results
+    print(f"Electric Car ({electric_car.registration_number}):")
+    print(f"  Distance Traveled: {electric_car.distance_traveled} km")
+    print(f"  Battery Capacity: {electric_car.battery_capacity} kWh\n")
+
+    print(f"Gasoline Car ({gasoline_car.registration_number}):")
+    print(f"  Distance Traveled: {gasoline_car.distance_traveled} km")
+    print(f"  Tank Volume: {gasoline_car.tank_volume} liters")
+
+
+if __name__ == "__main__":
+    main()
+
+#Exercise 12
+#1
+import requests
+
+def joke():
+    api_url = "https://api.chucknorris.io/jokes/random"
+    response = requests.get(api_url)
+    data = response.json()
+
+    if response.status_code == 200:
+        text = data["value"]
+        print(text)
+
+if __name__ == "__main__":
+    joke()
+
+#2
+import requests
+
+def conversion(kelvin):
+    return kelvin - 273.15
+
+def weather(city):
+    api_key = "933db7694960924d0fd1d4285703df2e"
+    url = "https://api.openweathermap.org/data/2.5/weather"
+    params = {
+        "q": city,
+        "appid": api_key
+    }
+
+    response = requests.get(url, params=params)
+
+    if response.status_code == 200:
+        data = response.json()
+
+        weather_description = data['weather'][0]['description']
+        kelvin = data['main']['temp']
+        celsius = conversion(kelvin)
+
+        print(f"Weather in {city}: {weather_description}")
+        print(f"Temperature: {celsius:.2f} °C")
+    else:
+        data = response.json() if response.text else None
+        error_message = data.get('message') if data else 'Unknown Error'
+        print(f"Error: {error_message}")
+
+    if response.status_code != 200:
+        print(f"Error: {response.text}")
+
+
+if __name__ == "__main__":
+    city = input("Enter the name of a municipality : ")
+    weather(city)
+
+#Exercise 13
+#1
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+@app.route('/prime_number/<int:number>', methods=['GET'])
+def prime(number):
+    result = {
+        "Number": number,
+        "isPrime": is_prime(number)
+    }
+    return jsonify(result)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+#2
+from flask import Flask, jsonify
+import mysql.connector
+app = Flask(__name__)
+connection = mysql.connector.connect(
+    host='127.0.1.1',
+    port=3306,
+    database='table',
+    user='root',
+    password='0707',
+    autocommit=True
+)
+@app.route('/')
+
+def home():
+    return jsonify({"message": "Welcome to the airports API"})
+@app.route(rule='/airports/<icao>', methods=['GET'])
+def get(icao):
+    cursor = connection.cursor(dictionary=True)
+    cursor.execute(f'SELECT * FROM airports WHERE ident = "{icao}"')
+    airport_info = cursor.fetchone()
+
+    if airport_info:
+        response = {
+            "ICAO": airport_info['ident'],
+            "Name": airport_info['name'],
+            "Location": airport_info['municipality']
+        }
+        return jsonify(response)
+    else:
+        return jsonify({"error": "Airport not found"}), 404
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
 
