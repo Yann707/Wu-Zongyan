@@ -677,7 +677,7 @@ class Elevator:
         self.bottom_floor = bottom_floor
         self.top_floor = top_floor
 
-    def go_to_floor(self, target_floor):
+    def floor(self, target_floor):
         while self.current_floor != target_floor:
             if self.current_floor < target_floor:
                 self.floor_up()
@@ -700,8 +700,8 @@ class Elevator:
 
 def main():
     my_elevator = Elevator(1, 10)
-    my_elevator.go_to_floor(7)
-    my_elevator.go_to_floor(1)
+    my_elevator.floor(7)
+    my_elevator.floor(1)
 
 if __name__ == "__main__":
     main()
