@@ -611,7 +611,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''
+
 #Exercise 9
 
 import random
@@ -707,5 +707,193 @@ if __name__ == "__main__":
     main()
 
 #2
+class Elevator:
+    def __init__(self, bottom_floor, top_floor):
+        self.current_floor = bottom_floor
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
 
+    def go_to_floor(self, target_floor):
+        while self.current_floor != target_floor:
+            if self.current_floor < target_floor:
+                self.floor_up()
+            else:
+                self.floor_down()
+
+    def floor_up(self):
+        if self.current_floor < self.top_floor:
+            self.current_floor += 1
+            print(f"Elevator is now on floor {self.current_floor}")
+        else:
+            print("The elevator's already on the top floor.")
+
+    def floor_down(self):
+        if self.current_floor > self.bottom_floor:
+            self.current_floor -= 1
+            print(f"Elevator is now on floor {self.current_floor}")
+        else:
+            print("The elevator's already on the bottom floor.")
+
+class Building:
+    def __init__(self, bottom_floor, top_floor, num_elevators):
+        self.elevators = [Elevator(bottom_floor, top_floor) for _ in range(num_elevators)]
+
+    def run_elevator(self, elevator_num, destination_floor):
+        if 0 <= elevator_num < len(self.elevators):
+            print(f"Running elevator {elevator_num + 1} to floor {destination_floor}:")
+            self.elevators[elevator_num].go_to_floor(destination_floor)
+
+def main():
+    my_building = Building(bottom_floor=1, top_floor=8, num_elevators=2)
+    my_building.run_elevator(elevator_num=0, destination_floor=5)
+    my_building.run_elevator(elevator_num=1, destination_floor=3)
+if __name__ == "__main__":
+    main()
+
+#3
+class Elevator:
+    def __init__(self, bottom_floor, top_floor):
+        self.current_floor = bottom_floor
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+
+    def go_to_floor(self, target_floor):
+        while self.current_floor != target_floor:
+            if self.current_floor < target_floor:
+                self.floor_up()
+            else:
+                self.floor_down()
+
+    def floor_up(self):
+        if self.current_floor < self.top_floor:
+            self.current_floor += 1
+            print(f"Elevator is now on floor {self.current_floor}")
+        else:
+            print("The elevator's already on the top floor.")
+
+    def floor_down(self):
+        if self.current_floor > self.bottom_floor:
+            self.current_floor -= 1
+            print(f"Elevator is now on floor {self.current_floor}")
+        else:
+            print("The elevator's already on the bottom floor.")
+
+class Building:
+    def __init__(self, bottom_floor, top_floor, num_elevators):
+        self.elevators = [Elevator(bottom_floor, top_floor) for _ in range(num_elevators)]
+
+    def run_elevator(self, elevator_num, destination_floor):
+        if 0 <= elevator_num < len(self.elevators):
+            print(f"Running elevator {elevator_num + 1} to floor {destination_floor}:")
+            self.elevators[elevator_num].go_to_floor(destination_floor)
+
+    def move(self):
+        for elevator in self.elevators:
+            elevator.go_to_floor(self.elevators[0].bottom_floor)
+
+def main():
+    my_building = Building(bottom_floor=1, top_floor=8, num_elevators=2)
+    my_building.run_elevator(elevator_num=0, destination_floor=1)
+    my_building.run_elevator(elevator_num=1, destination_floor=4)
+    my_building.move()
+
+    print("Fire alarm ! All elevators have been moved to the bottom floor")
+if __name__ == "__main__":
+    main()
+
+
+#4
+
+import random
+
+class Car:
+    def __init__(self, registration_number, max_speed):
+        self.registration_number = registration_number
+        self.max_speed = max_speed
+        self.speed = 0
+        self.distance_traveled = 0
+
+    def accelerate(self):
+        self.speed += random.randint(-10, 15)
+        self.speed = max(0, min(self.speed, self.max_speed))
+
+    def drive(self):
+        self.distance_traveled += self.speed
+
+
+class Race:
+    def __init__(self, name, distance, cars):
+        self.name = name
+        self.distance = distance
+        self.cars = cars
+
+    def hour_passes(self):
+        for car in self.cars:
+            car.accelerate()
+            car.drive()
+
+    def print_status(self):
+        print(f"{'Registration Number':<20} {'Max Speed (km/h)':<20} {'Distance Traveled (km)':<25}")
+        for car in self.cars:
+            print(f"{car.registration_number:<20} {car.max_speed:<20} {car.distance_traveled:<25}")
+
+    def race_finished(self):
+        return any(car.distance_traveled >= self.distance for car in self.cars)
+
+
+def main():
+    cars = [Car(registration_number=f"ABC-{i+1}", max_speed=random.randint(100, 200)) for i in range(10)]
+    grand_demolition_derby = Race(name="Grand Demolition Derby", distance=8000, cars=cars)
+
+    hour_counter = 0
+    while not grand_demolition_derby.race_finished():
+        if hour_counter % 10 == 0:
+            grand_demolition_derby.print_status()
+        grand_demolition_derby.hour_passes()
+        hour_counter += 1
+
+    grand_demolition_derby.print_status()
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+#Exercise 11
+
+class Publication:
+    def __init__(self, name):
+        self.name = name
+
+    def information(self):
+        print(f"Publication Name: {self.name}")
+
+
+class Book(Publication):
+    def __init__(self, name, author, page_count):
+        super().__init__(name)
+        self.author = author
+        self.page_count = page_count
+
+    def print_information(self):
+        super().information()
+        print(f"Author: {self.author}")
+        print(f"Page Count: {self.page_count}")
+
+
+class Magazine(Publication):
+    def __init__(self, name, chief_editor):
+        super().__init__(name)
+        self.chief_editor = chief_editor
+
+    def print_information(self):
+        super().information()
+        print(f"Chief Editor: {self.chief_editor}")
+
+
+Donald_Duck = Magazine(name="Donald Duck", chief_editor="Aki Hyyppä")
+Compartment_No6  = Book(name="Compartment No. 6", author="Rosa Liksom", page_count=192)
+
+Donald_Duck.print_information()
+Compartment_No6.print_information()
 
