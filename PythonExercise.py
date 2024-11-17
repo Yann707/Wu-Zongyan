@@ -1000,7 +1000,6 @@ def weather(city):
     if response.status_code != 200:
         print(f"Error: {response.text}")
 
-
 if __name__ == "__main__":
     city = input("Enter the name of a municipality : ")
     weather(city)
